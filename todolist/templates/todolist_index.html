@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    	<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
+			rel="stylesheet"/>
+</head>
+
+<title>TODO LIST</title>
+
+<body>
+    <div id="main-title">TODO LIST</div>
+    <div id="main-content">
+    <section>
+        <div id="list">
+            <div class="list-body">
+
+            <!-- to-do 리스트 -->
+            <ul id="todo-list"> </ul>
+
+            </div>
+        </div>
+
+            <!-- task 수정 : Modal 구조 -->
+            <div id="myEditModal" class="modal">
+                    <div class="modal-body">
+                        <span class="close"  onclick="closeModal()">&times;</span>
+                         <span class="modal-title">항목을 수정해 보세요!!</span>
+                        <div class="modal-content">
+                            할 일
+                            <input
+                                 type="text"
+                                 id="edit-todo"
+                                 class="todo-input"/>
+                            <br/>
+                            <button id = "edit-done-btn" class="modal-done-button"> 수정 </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- task 추가 : Modal 구조 -->
+               <div id="myAddModal" class="modal">
+                    <div class="modal-body">
+                        <span class="close"  onclick="closeModal()">&times;</span>
+                         <span class="modal-title">항목을 추가해 보세요!!</span>
+                        <div class="modal-content">
+                            할 일
+                            <input
+                                 type="text"
+                                 id="new-todo"
+                                 class="todo-input"/>
+                            <br/>
+                            <button id = "add-done-btn" class="modal-done-button" onclick="addTodo()"> 추가 </button>
+                        </div>
+                    </div>
+                </div>
+
+        <!-- to-do 추가 플로팅 버튼 -->
+        <div class="add-floating-button-container">
+            <button class="add-floating-button" onclick="openAddModal()"> + </button>
+        </div>
+    </section>
+</div>
+
+<script src="{% static 'js/script.js' %}">
+</script>
+
+
+<script>
+      loadTodos()
+</script>
+
+</body>
+
+</html>
